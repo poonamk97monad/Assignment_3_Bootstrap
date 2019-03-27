@@ -78,10 +78,10 @@ if(isset($_POST["contact"])) {
             header('Location: update.php?fname='.$_POST["fname"].'&lname='.$_POST["lname"].'&email='.$_POST["email"].'&phone='.$_POST["phone"].'&about='.$_POST["about"].'&strError=' . urlencode('All fileds are requred'));
         }
         elseif (!$strCheckEmail) {
-            header('Location: update.php?fname='.$_POST["fname"].'&lname='.$_POST["lname"].'&email='.$_POST["email"].'&phone='.$_POST["phone"].'&about='.$_POST["about"].'&strPhoneError=' . urlencode('Please provide proper Email Id'));
+            header('Location: update.php?fname='.$_POST["fname"].'&lname='.$_POST["lname"].'&email='.$_POST["email"].'&phone='.$_POST["phone"].'&about='.$_POST["about"].'&strEmailError=' . urlencode('Please provide proper Email Id'));
         }
         elseif (!$strCheckPhone) {
-            header('Location: update.php?fname='.$_POST["fname"].'&lname='.$_POST["lname"].'&email='.$_POST["email"].'&phone='.$_POST["phone"].'&about='.$_POST["about"].'&strEmailError=' . urlencode('Please provide proper phone no..'));
+            header('Location: update.php?fname='.$_POST["fname"].'&lname='.$_POST["lname"].'&email='.$_POST["email"].'&phone='.$_POST["phone"].'&about='.$_POST["about"].'&strPhoneError=' . urlencode('Please provide proper phone no..'));
         }
         else {
             switch ($strUserType) {

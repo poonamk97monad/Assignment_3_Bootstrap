@@ -6,8 +6,8 @@ class Validation extends Connection
 {
     /**
      * To check empty fileds
-     * @param  $data
-     * @param  $filels
+     * @param  $arrStrData
+     * @param  $strFields
      * @return String
      */
     public function checkEmptyFields($arrStrData, $strFields) {

@@ -135,11 +135,11 @@ session_start();
                     </div>
                     <div class="formtext">
                         <div>
-                            <div class="text-danger">
+                            <div class="text-danger font-weight-bolder ">
                                 <?php echo $_GET['strError'];?>
                             </div>
-                            <div class="text-success">
-                                <?php echo $_GET['strSuccess'];?>
+                            <div class="text-success font-weight-bolder ">
+                                <h4><?php echo $_GET['strSuccess'];?></h4>
                             </div>
                             <form method="post" action="check.php" id="contact" >
                               <input type="text" value="<?php echo $_GET['id']?>" class="uphidden" name="id">
@@ -157,7 +157,7 @@ session_start();
                                   <label for="email">Email_id:<em class="required">*</em></label>
                                   <input type="text" class="form-control is-valid" name="email" value="<?php echo $_GET['email']; ?>"  placeholder="someone@gmail.com" id="contact_email">
                                   <span class="error">A valid email address is required</span>
-                                  <div class="text-danger">
+                                  <div class="text-danger font-weight-bolder ">
                                       <?php echo $_GET['strEmailError'];?>
                                   </div>
                               </div>
@@ -165,7 +165,7 @@ session_start();
                                   <label for="phone">Moblie_no.:</label>
                                   <input type="text" class="form-control is-valid" name="phone" value="<?php echo $_GET['phone']; ?>" placeholder="99999888888" id="contact_phone">
                                   <span class="error">A valid phone address is required</span>
-                                  <div class="text-danger">
+                                  <div class="text-danger font-weight-bolder ">
                                       <?php echo $_GET['strPhoneError'];?>
                                   </div>
                               </div>
