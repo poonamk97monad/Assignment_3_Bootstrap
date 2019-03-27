@@ -10,12 +10,12 @@ class Validation extends Connection
      * @param  $filels
      * @return String
      */
-    public function checkEmptyFields($data, $fields) {
+    public function checkEmptyFields($arrStrData, $strFields) {
 
         $strMessage = null;
-        foreach ($fields as $value) {
-            if (empty($data[$value])) {
-                $strMessage .= "$value field empty <br />";
+        foreach ($strFields as $strValue) {
+            if (empty($arrStrData[$strValue])) {
+                $strMessage .= "$strValue field empty <br />";
             }
         }
         return $strMessage;
