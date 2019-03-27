@@ -9,7 +9,7 @@ class Teacher extends UserData
      * @return array - $arrStrFields
      */
     public function getFields() {
-        $arrStrFields = array(',deparment_name',',is_hod',',teaching_subjects');
+        $arrStrFields = array('deparment_name','is_hod','teaching_subjects');
         return $arrStrFields;
     }
     /**
@@ -18,45 +18,37 @@ class Teacher extends UserData
      */
     public function updateFields() {
 
-        $intId             = $_POST['id'];
-        $strFirstName      = $_POST['fname'];
-        $strLastName       = $_POST['lname'];
-        $strEmailId        = $_POST['email'];
-        $intPhoneNumber    = $_POST['phone'];
-        $strAbout          = $_POST['about'];
-        $strUserType       = $_POST['usertype'];
-        $strDeparmentName  = $_POST['deparment_name'];
-        $strHod            = $_POST['is_hod'];
-        $strTeachSubjects  = $_POST['teaching_subjects'];
-
+        $intId           = $_POST['id'];
         $arrStrAllFields = $this->getAllFields();
         $arrStrFields    = $this->getFields();
 
         $strQueryBuild = "";
-        foreach ($arrStrAllFields as $strField) {
-
+        foreach ($arrStrAllFields as $intCounter => $strField) {
             if(isset($_POST[$strField])) {
-                $strQueryBuild .= $strField.'= "'.$_POST[$strField].'"';
+                $strQueryBuild .= $strField.'="'.$_POST[$strField].'"';
+                if(isset($arrStrAllFields[$intCounter])) {
+                    $strQueryBuild = $strQueryBuild . ',';
+                }
             }
         }
-        foreach ($arrStrFields as $strField) {
+        foreach ($arrStrFields as $intCounter => $strField) {
 
             if(isset($_POST[$strField])) {
-                $strQueryBuild .= $strField.'= "'.$_POST[$strField].'"';
+                $strQueryBuild .= $strField.'="'.$_POST[$strField].'"';
+
+                if(isset($arrStrFields[$intCounter+1])) {
+                    $strQueryBuild = $strQueryBuild . ',';
+                }
+
             }
         }
-
-        $arrSql = "update users SET $strQueryBuild where id = '$intId'";
-        $arrObjResult = mysqli_query($this->objConnection, $arrSql);
+        $strSql = "update users SET $strQueryBuild where id = '$intId'";
+        $arrObjResult = mysqli_query($this->objConnection, $strSql);
         if (!$arrObjResult) {
             die("record not update");
         } else {
-            ?>
-            <script type = "text/javascript">
-                alert('upadate data');
-                window.location = "view.php";
-            </script>
-            <?php
+            echo ("Update successfully");
+            header('Location: update.php?strSuccess=' . urlencode('Success! Update successfully'));
         }
     }
 }

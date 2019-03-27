@@ -8,7 +8,7 @@ class UserData extends Connection
      * @return array - $arrStrAllFields
      */
     public function getAllFields() {
-        $arrStrAllFields = array('fname',',lname',',email',',phone',',about',',usertype');
+        $arrStrAllFields = array('fname','lname','email','phone','about','usertype');
         return $arrStrAllFields;
 
     }

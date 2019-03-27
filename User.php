@@ -24,9 +24,9 @@ class User extends Connection
         $strHod            = $_POST['is_hod'];
         $strTeachSubjects  = $_POST['teaching_subjects'];
 
-        $arrSql = "insert into users(fname,lname,email,phone,about,password,usertype,class_name,is_monitor,studying_subjects,deparment_name,is_hod,teaching_subjects) values('$strFirstName ','$strLastName','$strEmailId','$intPhoneNumber','$strAbout','$strPassword','$strUserType','$strClassName','$strMonitor','$strStudySubjects','$strDeparmentName','$strHod','$strTeachSubjects')";
+        $strSql = "insert into users(fname,lname,email,phone,about,password,usertype,class_name,is_monitor,studying_subjects,deparment_name,is_hod,teaching_subjects) values('$strFirstName ','$strLastName','$strEmailId','$intPhoneNumber','$strAbout','$strPassword','$strUserType','$strClassName','$strMonitor','$strStudySubjects','$strDeparmentName','$strHod','$strTeachSubjects')";
         $_SESSION['message'] = "Address saved";
-        $arrObjResult = mysqli_query($this->objConnection, $arrSql);
+        $arrObjResult = mysqli_query($this->objConnection, $strSql);
         if (!$arrObjResult) {
             die("Not register");
         }
@@ -63,8 +63,8 @@ class User extends Connection
      */
     public function deleteUser() {
         $intId  = $_GET['idd'];
-        $arrSql = "delete from users where id = '$intId'";
-        $arrObjResult = mysqli_query($this->objConnection, $arrSql);
+        $strSql = "delete from users where id = '$intId'";
+        $arrObjResult = mysqli_query($this->objConnection, $strSql);
         if (!$arrObjResult) {
             die("Not delete");
         } else {
@@ -80,9 +80,9 @@ class User extends Connection
         $strName      = $_POST['name'];
         $strEmailId   = $_POST['email'];
         $strComment   = $_POST['comments'];
-        $arrSql = "insert into contact(name,email,comment) values('$strName ','$strEmailId','$strComment')";
+        $strSql = "insert into contact(name,email,comment) values('$strName ','$strEmailId','$strComment')";
         $_SESSION['message'] = "Address saved";
-        $arrObjResult = mysqli_query($this->objConnection, $arrSql);
+        $arrObjResult = mysqli_query($this->objConnection, $strSql);
         if (!$arrObjResult) {
             die("Not register");
         }

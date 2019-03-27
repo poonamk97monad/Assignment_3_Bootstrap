@@ -46,6 +46,11 @@
     margin-top: 10px;
     color: #2d2d30;
 }
+.hidden {
+    visibility: hidden;
+    display: none;
+
+}
 
 .pname {
     color: #111111 !important;
@@ -81,6 +86,23 @@
 .foropacity {
     opacity: 0.9;
     font-size: large;
+}
+
+.error{
+    display: none;
+    margin-left: 10px;
+}
+
+.error_show{
+    color: red;
+    margin-left: 10px;
+}
+input.invalid, textarea.invalid{
+    border: 2px solid red;
+}
+
+input.valid, textarea.valid{
+    border: 2px solid green;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
